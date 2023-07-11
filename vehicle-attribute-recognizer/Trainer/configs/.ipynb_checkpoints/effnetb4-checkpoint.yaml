@@ -1,0 +1,40 @@
+output_dir: "../Trainer/outputs/"
+device: 'cuda:0' # you can change this device to cpu or cuda:0
+
+dataset:
+  root_dir: '../Dataset/Vehicle-Color/' # modify it
+  augmentation: # you can add any augmemtation parameters in here
+    rotation_range: 30
+    sharpness_factor: 2
+    distortion_scale: 0.5
+    bits: 2
+
+  train_dir: '../Dataset/Vehicle-Color/train/' # modify it
+  val_dir:  '../Dataset/Vehicle-Color/val/' # modify it
+  test_dir: '../Dataset/Vehicle-Color/val/' # modify it
+  mean: [0.485, 0.456, 0.406] # from imagenet
+  std: [0.229, 0.224, 0.225] # from imagenet
+  
+  num_workers: 2
+  
+model:
+  backbone: 'efficientnet_b4' # name of backbone or network models
+  input_size: [224, 224]
+  num_classes: 15
+
+train:
+  batch_size: 32 # num of batch size
+  optimizer: 'adam'
+  lr: 0.00001
+  num_epochs: 20
+  weight_decay: 0.0001
+val:
+  batch_size: 32
+
+test:
+  batch_size: 32
+
+logger:
+  api_key: "ZlKuBWBHA9epZ4XIGUkNnolj8" # private keys
+  workspace: "wahyu-adi-n" # user-name
+  project_name: "VTMMC_Recognition" # name  of project

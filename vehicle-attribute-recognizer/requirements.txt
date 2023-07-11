@@ -1,0 +1,11 @@
+torch
+torchvision
+torchinfo
+opencv-contrib-python
+comet_ml
+pandas
+numpy
+Pillow
+matplotlib
+dvc
+easydict
